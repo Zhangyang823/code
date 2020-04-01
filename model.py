@@ -98,7 +98,8 @@ class GCNModelVAE(Model):
         #隐节点分布的均值和标准差取对数，长度是对应的hidden2
         self.z_mean = tf.Variable(tf.zeros([self.input_dim, FLAGS.hidden2]), name='zmean')
         self.z_log_std = tf.Variable(tf.zeros([self.input_dim, FLAGS.hidden2]), name='z_log_std')
-        for i in range(10):
+        #20
+        for i in range(20):
             #遍历10个1-0矩阵
             self.hidden1 = GraphConvolutionSparse(input_dim=self.input_dim,
             #VAE的第一个隐层                                      

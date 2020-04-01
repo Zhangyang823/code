@@ -61,7 +61,8 @@ adj_R_norm = [preprocess_graph(one_adj) for one_adj in adj_R]
 # placeholders
 placeholders = {
     'features': tf.sparse_placeholder(tf.float32),
-    'adj': [tf.sparse_placeholder(tf.float32) for _ in range(10)],
+    #20
+    'adj': [tf.sparse_placeholder(tf.float32) for _ in range(20)],
     'adj_orig': tf.sparse_placeholder(tf.float32),
     'dropout': tf.placeholder_with_default(0., shape=())
 }

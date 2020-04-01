@@ -130,7 +130,8 @@ class Xunying_InnerProductDecoder(Layer):
 
     def _call(self, inputs):
         outputs = []
-        for i in range(10):
+        #20
+        for i in range(20):
             intputs_i = tf.nn.dropout(inputs, 1 - self.dropout)
             W = weight_variable_glorot(self.input_dim, self.input_dim, name="decoder_weights" + str(i))
             x = tf.transpose(intputs_i)
@@ -141,11 +142,13 @@ class Xunying_InnerProductDecoder(Layer):
 
         #################
         # decoder
-        outputs = tf.reshape(outputs, [-1, 10])
+        #20
+        outputs = tf.reshape(outputs, [-1, 20])
         logits_output = tf.nn.softmax(outputs) 
         #Softmax 层神经元个数为 R=10。成绩预测模型的输出 M_hat 和模型的输入 M 对应，预测结果即
         #为学生对应课程的成绩
-        r_weight = tf.reshape(tf.constant(list(range(1, 11)),dtype=tf.float32), [10,1])  # (n*n,1)
+        #20
+        r_weight = tf.reshape(tf.constant(list(range(1, 21)),dtype=tf.float32), [10,1])  # (n*n,1)
         n = inputs.get_shape().as_list()[0]
         M_hat = tf.matmul(logits_output, r_weight)
         M_hat = tf.reshape(M_hat, [n, n]) 

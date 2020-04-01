@@ -24,7 +24,7 @@ def get_matrixM(path):
                 #如果当前课程在之前未被记录过
                 item_list.append(eles[1])
             try:
-                #res[eles[0]][eles[1]] = int(float(eles[2])/10)
+                #20 res[eles[0]][eles[1]] = int(float(eles[2])/10)
                 res[eles[0]][eles[1]] = int(float(eles[2]) / 5)
             except:
                 pass
@@ -59,6 +59,7 @@ def get_matrixM(path):
 def get_adj_01(adj):
     M, N = adj.shape
     matrix_all = []  # 存储１－１０个级别对应的0/1矩阵
+    #20
     for i in range(20):
         matrix = np.zeros([M, N])
         matrix_all.append(matrix)
@@ -76,7 +77,6 @@ def get_marix_combine_matixT(matrix):# 矩阵matrix和其转置矩阵分在处�
     '   A     0   '
     matrixT = matrix.T
     zero_h = np.zeros([matrix.shape[0], matrix.shape[0]])
-    print (zero_h)
     matrix = np.hstack((zero_h, matrix))
     zero_v = np.zeros([matrixT.shape[0], matrixT.shape[0]])
     matrixT = np.hstack((matrixT, zero_v))
